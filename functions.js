@@ -83,10 +83,16 @@ else{
  *    ageFromBirthDate(19870506) -> 31 (because the birthday already passed)
  *    ageFromBirthDate(19971110) -> 20 (because the birthday hasn't passed yet)
  */
-function ageFromBirthDate(birthDate) {
+function ageFromBirthDate(birthDate) { // done after commit (1)
   const _MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365;
-
-  // Your code here
+  const year= birthDate.slice(0,4);
+  const month = birthDate.slice(4,6)
+  const day= birthDate.slice(6)
+  const today= new Date()
+  const dob = new Date(`${month}/${day}/${year}`)
+  let age = today - dob 
+  age = age / _MS_PER_YEAR
+  return Math.floor(age)
 }
 
 module.exports = {
